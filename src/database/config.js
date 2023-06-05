@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const dbConnection = async () => {
   try {
-    await mongoose.connect(process.env.DB_CNN, {
+    const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.aczb5xl.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

@@ -24,8 +24,10 @@ app.use(express.static(publicPath));
 app.use("/api/login", require("./src/routes/auth"));
 app.use("/api/usuarios", require("./src/routes/usuarios"));
 
-server.listen(process.env.PORT, (err) => {
+app.set('port', process.env.PORT || 3000)
+
+server.listen(app.get('port'), (err) => {
   if (err) throw new Error(err);
 
-  console.log("Servidor corriendo en puerto", process.env.PORT);
+  console.log("Servidor corriendo en puerto", app.get('port'));
 });
