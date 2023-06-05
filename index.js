@@ -2,9 +2,6 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
-// DB Config
-require("./src/database/config").dbConnection();
-
 // App de Express
 const app = express();
 
@@ -25,6 +22,9 @@ app.use("/api/login", require("./src/routes/auth"));
 app.use("/api/usuarios", require("./src/routes/usuarios"));
 
 app.set('port', process.env.PORT || 3000)
+
+// DB Config
+require("./src/database/config").dbConnection();
 
 server.listen(app.get('port'), (err) => {
   if (err) throw new Error(err);
