@@ -12,6 +12,18 @@ io.on("connection", (client) => {
   }
 
   usuarioConectado(uid)
+
+  //Ingresar al usuario a una sala especifica
+  //sala global
+
+  client.join(uid)
+
+  //Escuchar del cliente un mensaje personal
+  client.on('mensaje-pesonal', (payload)=>{
+    console.log(payload)
+
+    io.to(payload.para).emit('mensaje-personal', payload)
+  })
   
   client.on("disconnect", () => {
     console.log("Cliente desconectado");
