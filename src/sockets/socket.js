@@ -19,7 +19,7 @@ io.on("connection", (client) => {
   client.join(uid)
 
   //Escuchar del cliente un mensaje personal
-  client.on('mensaje-pesonal', (payload)=>{
+  client.on('mensaje-personal', (payload)=>{
     console.log(payload)
 
     io.to(payload.para).emit('mensaje-personal', payload)
