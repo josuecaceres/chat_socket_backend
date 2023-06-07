@@ -1,4 +1,5 @@
 const Mensaje = require("../models/mensaje");
+
 const obtenerchat = async (req, res) => {
   const miId = req.uid;
   const mensajesDe = req.params.de;

@@ -11,12 +11,12 @@ const MensajeSchema = Schema({
     ref: 'Usuario',
     required: true,
   },
-  mesnaje:{
+  mensaje:{
     type: String,
     required: true
   }
 }, {
-    timeStamps: true
+  timestamps: true
 });
 
 MensajeSchema.method("toJSON", function () {

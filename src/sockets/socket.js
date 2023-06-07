@@ -11,22 +11,22 @@ io.on("connection", (client) => {
     return client.disconnect();
   }
 
-  usuarioConectado(uid)
+  usuarioConectado(uid);
 
   //Ingresar al usuario a una sala especifica
   //sala global
 
-  client.join(uid)
+  client.join(uid);
 
   //Escuchar del cliente un mensaje personal
-  client.on('mensaje-personal', async (payload)=>{
-    await saveMensaje(payload)
-    io.to(payload.para).emit('mensaje-personal', payload)
-  })
-  
+  client.on("mensaje-personal", async (payload) => {
+    await saveMensaje(payload);
+    io.to(payload.para).emit("mensaje-personal", payload);
+  });
+
   client.on("disconnect", () => {
     console.log("Cliente desconectado");
-    usuarioDeconectado(uid)
+    usuarioDeconectado(uid);
   });
 
   // client.on('mensaje', ( payload ) => {
