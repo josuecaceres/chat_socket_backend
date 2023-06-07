@@ -20,6 +20,7 @@ app.use(express.static(publicPath));
 // Mis Rutas
 app.use("/api/login", require("./src/routes/auth"));
 app.use("/api/usuarios", require("./src/routes/usuarios"));
+app.use("/api/mensajes", require("./src/routes/mensajes"));
 
 app.set('port', process.env.PORT || 3000)
 
